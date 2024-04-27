@@ -1,0 +1,255 @@
+@font-face {
+    font-family: Vogue Font;
+    src: url(assets/Vogue.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #224ea7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    z-index: 1000;
+}
+
+.navbar .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container ul {
+    width: 530px;
+    font-size: larger;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-right: 180px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:hover{
+    color: #ecf3f1;
+}
+
+
+.banner {
+    background-color: #224ea7;
+    background-size: cover;
+
+}
+
+.banner .container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 96vh;
+    background-image: url(../assets/46437776-92b7-40f1-8aef-12208e579ec4.png);
+    background-size: cover;
+    border-bottom: #ffffff 3px solid;
+    background-color: #224ea7;
+}
+
+.banner .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.card {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.titulo {
+    color: white;
+    font-size: larger;
+    margin-top: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.titulo img{
+    display: flex;
+    margin-left: 200px;
+}
+
+.ReadToAchieve{
+    display: flex;
+    height: 280px;
+}
+
+.ReadToAchieve img {
+    height: 120px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.ReadToAchieve .titulo-1 h2{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    flex-direction: row;
+}
+
+
+.ReadToAchieve .titulo-1 p{
+    margin-top: 150px;
+    margin-right: 200px;
+    margin: 30px;
+    font-size: large;
+}
+
+.MathHoops{
+    display: flex;
+    height: 280px;
+    margin-left: 30px;
+}
+
+.MathHoops img {
+    height: 150px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.MathHoops .titulo-2 h2{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    flex-direction: row;
+}
+
+
+.MathHoops .titulo-2 p{
+    margin-top: 150px;
+    margin-right: 200px;
+    margin: 30px;
+    font-size: large;
+}
+
+.Scholarship{
+    display: flex;
+    height: 280px;
+    margin-left: 30px;
+}
+
+.Scholarship img {
+    height: 150px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.Scholarship .titulo-3 h2{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    flex-direction: row;
+}
+
+
+.Scholarship .titulo-3 p{
+    margin-top: 150px;
+    margin-right: 200px;
+    margin: 30px;
+    font-size: large;
+}
+
+.TeacherAppreciation{
+    display: flex;
+    height: 280px;
+    margin-left: 30px;
+}
+
+.TeacherAppreciation img {
+    height: 140px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.TeacherAppreciation .titulo-4 h2{
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    flex-direction: row;
+}
+
+
+.TeacherAppreciation .titulo-4 p{
+    margin-top: 150px;
+    margin-right: 200px;
+    margin: 30px;
+    font-size: large;
+}
+
+
+
+.footer .container{
+    background: linear-gradient(90deg, #122a5a 0%, #2c5fc5 100%);
+    display: flex;
+    flex-direction: row;
+}
+
+.footer h1{
+    margin-top: -10px;
+}
+
+.logotipo2{
+  
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    color: #ecf3f1;
+    align-items: center;
+}
+
+.contato {
+    width: 50%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ecf3f1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contato li{
+    margin: 15px;
+}
+
+.contato img{
+    margin: 15px;
+    margin-right: 5px;
+    height: 25px;
+    padding-right: 115px;
+}

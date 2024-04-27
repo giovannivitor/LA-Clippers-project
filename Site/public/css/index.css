@@ -1,0 +1,327 @@
+@font-face {
+    font-family: Vogue Font;
+    src: url(assets/Vogue.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #224ea7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+.navbar .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container ul {
+    width: 530px;
+    font-size: larger;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-right: 180px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a:hover{
+    color: #ecf3f1;
+}
+
+
+.banner {
+    background-color: #224ea7;
+    background-size: cover;
+
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url(../assets/imagemInicio.avif);
+    background-size: cover;
+
+}
+
+.card {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+
+}
+
+.titulo {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    margin-left: 40px;
+    justify-content: center;
+    text-align: left;
+    opacity: 0.7;
+}
+
+.banner-2 .flex-container{
+    background-color: white;
+    padding-bottom: 1px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 1190px;
+}
+
+
+.tituloHistoria{
+    color: #224ea7;
+    margin: 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.imagemBufallo img{
+    width: 20%;
+    margin-left: 150px;
+    margin-top: 4%;
+}
+
+.texto-direita p {
+    position: relative;
+    top: -290px; 
+    display: flex;
+    width: 30%;
+    margin-left: 720px;
+    font-size: large;
+}
+
+.anoBufallo img{
+    width: 39%;
+    position: absolute;
+    bottom: -38%;
+    left: 13%;
+    
+}
+
+.ImagemSanDiego img{
+    width: 20%;
+    margin-left: 800px;
+    margin-top: -40%;
+}
+
+.anoSanDiego img{
+    width: 39%;
+    position: absolute;
+    bottom: -87%;
+    right: 19%;
+}
+
+.texto-esquerda p {
+    position: relative;
+    top: -250px;
+    display: flex;
+    width: 30%;
+    margin-left: 150px;
+    font-size: large;
+    
+}
+
+.ImagemLAclippers img{
+    width: 20%;
+    margin-left: 150px;
+    margin-top: -10%;
+}
+
+.texto-direita-2 p {
+    position: relative;
+    top: -240px; 
+    display: flex;
+    width: 30%;
+    margin-left: 720px;
+    font-size: large;
+}
+
+.anoLAclippers img{
+    width: 39%;
+    position: absolute;
+    bottom: -143%;
+    left: 13%;
+    
+}
+.banner-3 .container {
+    background-color: #f5f2f2;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    
+    
+}
+
+.tituloElenco {
+    color: #224ea7;
+    text-align: center;
+    margin-bottom: 25px; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ImagensElenco img {
+    width: 180%;
+    max-width: 260px; 
+    height: auto; 
+    border-radius: 2%;
+    margin: 20px;
+    margin-top: 10px;
+
+}
+
+.botaoVejaMais a{
+    min-width: 60px;
+    height: 20px;
+    color: #224ea7;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    display: flex;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #224ea7;;
+    background: #f5f2f2;
+    margin-top: -48px;
+    margin-left: 80%;
+    text-decoration: none;
+    font-weight: bolder;
+    z-index: 0 ;
+  }
+  .botaoVejaMais:hover a{
+    background: #224ea7;;
+    color: #f5f2f2;
+    z-index: 0 ;
+  }
+
+
+  .iconeNoticias{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-4 .container {
+    background-color: white;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    
+    
+}
+
+.banner-4 .container {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+.TituloSobreMim {
+    color: #224ea7;
+    text-align: center;
+    margin-bottom: 20px; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+  
+  .content-Sobremim {
+    display: flex;
+    color: rgb(0, 0, 0);
+    justify-content: center;
+  }
+  
+  .texto p {
+    font-size: 1.1rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 75%;
+    margin-left: 130px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .content-Sobremim img{
+    height: 400px;
+    border-radius: 10%;
+    object-fit: cover;
+    border: 3px solid #224ea7;
+    z-index: 1;
+    margin-left: 200px;
+  }
+
+
+
+.footer .container{
+    background: linear-gradient(90deg, #122a5a 0%, #2c5fc5 100%);
+    display: flex;
+    flex-direction: row;
+}
+
+.footer h1{
+    margin-top: -10px;
+}
+
+.logotipo2{
+  
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    color: #ecf3f1;
+    align-items: center;
+}
+
+.contato {
+    width: 50%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ecf3f1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contato li{
+    margin: 15px;
+}
+
+.contato img{
+    margin: 15px;
+    margin-right: 5px;
+    height: 25px;
+    padding-right: 115px;
+    transition: all .4s ease-in-out;
+}
+
+
+
+

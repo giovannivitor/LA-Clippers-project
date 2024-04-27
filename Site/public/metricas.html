@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/styleFonts.css">
+    <link rel="stylesheet" href="css/metricas.css">
+    <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container_navbar">
+            <div class="logo">
+                <div class="fundo_logo">
+                    <a href="index.html"> <img src="assets/LogoHeader.png" alt="" height="80px"></a>
+                </div>
+            </div>
+            <div class="menu">
+                <p id="nome_usuario">BEM VINDO</span></p>
+                <a class="menu_item" href="index.html">HOME</a>
+                <a class="menu_item" href="#">DASHBOARD</a>
+                <a class="menu_item" href="avaliacao.html">AVALIAÇÃO</a>
+                <p class="menu_item" onclick="sair()">SAIR</p>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard">
+        <div class="dashboard_top">
+            <div class="grafico_top_left">
+                <h2>SUA PONTUAÇÃO</h2>
+                <canvas id="myChart1" height="100px" width="100px"></canvas>
+            </div>
+            <div class="grafico_top_right">
+                <div class="jogador_kpi">
+                    <h2>JOGADOR PREFERIDO</h2>
+                    <span id="jogador_preferido">Paul George</span>
+                </div>
+                <div class="idade_kpi">
+                    <h2>IDADE MÉDIA DOS USUARIOS</h2>
+                    <span id="idade"></span>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_bottom">
+            <div class="grafico">
+                <h2>PONTUAÇÃO MÉDIA</h2>
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    if (sessionStorage.length <= 0) {
+        
+
+    } else {
+        var nome = '';
+
+        for (var contadorLetras = 0; contadorLetras < sessionStorage.NOME_USUARIO.length; contadorLetras++) {
+            if (sessionStorage.NOME_USUARIO[contadorLetras] == ' ') {
+                contadorLetras = sessionStorage.NOME_USUARIO.length;
+                break;
+            }
+
+            nome += sessionStorage.NOME_USUARIO[contadorLetras];
+        }
+
+        nome_usuario.innerHTML = `OLÁ, ${(nome)}`;
+    }
+
+    var listaCores = [[], []];
+
+    var idadeMedia = 0;
+    var roncoPreferido = "";
+
+    var versoesPreferidas = [];
+
+    window.onload = lerDadosCor();
+
+    function lerDadosCor() {
+        console.log("entrei no ler dados")
+        fetch(`/dashboard/cor/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for (var contadorRespota = 0; contadorRespota < resposta.length; contadorRespota++) {
+                        listaCores[0][contadorRespota] = resposta[contadorRespota].cor;
+                        listaCores[1][contadorRespota] = resposta[contadorRespota].contagem;
+                    }
+
+                    lerDadosIdade();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function lerDadosIdade() {
+        fetch(`/dashboard/idadeRonco/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos lerDadosIdade(): ${JSON.stringify(resposta)}`);
+                    idadeMedia = parseInt(resposta[0].contagem);
+                    roncoPreferido = 'Original';
+                    if (resposta[1].contagem == 2) {
+                        roncoPreferido = 'Sem Abafadores';
+
+                    } else if (resposta[1].contagem == 3) {
+                        roncoPreferido = 'Direto';
+                    }
+
+                    lerDadosVersao();
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function lerDadosVersao() {
+        fetch(`/dashboard/versoes/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos lerDadosIdade(): ${JSON.stringify(resposta)}`);
+
+                    for (var contagemVersoes = 0; contagemVersoes < resposta.length; contagemVersoes++) {
+                        versoesPreferidas[contagemVersoes] = resposta[contagemVersoes].contagem;
+                    }
+
+                    plotarGrafico();
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function plotarGrafico() {
+        console.log(`entrei no plotarGrafico`);
+        console.log(listaCores);
+
+        ronco_preferido.innerHTML = roncoPreferido;
+        idade.innerHTML = `${idadeMedia} <span style='font-size: 10px;'>anos</span>`
+
+        const myChart1 = document.getElementById(`myChart1`);
+        new Chart(myChart1, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: listaCores[1],
+                    backgroundColor: listaCores[0],
+                    borderColor: '#000'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false
+            }
+        });
+
+        var valoresX = ["2004-2007", "2008-2011", "2012-2014"];
+        var corBarras = ["#62BEEF", "#E3E3E3", "#FF1717"];
+
+        const myChart2 = document.getElementById(`myChart2`);
+        new Chart(myChart2, {
+            type: "bar",
+            data: {
+                labels: valoresX,
+                datasets: [{
+                    backgroundColor: corBarras,
+                    data: versoesPreferidas
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    datalabels: {
+                        color: '#fff'
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks:{
+                            color: '#fff'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    x: {
+                        ticks:{
+                            color: '#fff'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+
+
+    }
+
+    fetch(`/usuarios/puxar`)
+    .then(function (resposta) {
+
+    resposta.json().then(function (resposta){
+        idade.innerHTML = resposta[0].media_idade
+    })
+ });
+
+ 
+
+    function sair() {
+        sessionStorage.clear();
+        window.open("login.html", "_self");
+    }
+</script>

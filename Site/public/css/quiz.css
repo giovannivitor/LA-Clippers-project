@@ -1,0 +1,157 @@
+@font-face {
+    font-family: Vogue Font;
+    src: url(assets/Vogue.ttf);
+}
+html{
+    overflow-x: hidden;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #224ea7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+.navbar .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .container ul {
+    width: 530px;
+    font-size: larger;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-right: 180px;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: white;
+}
+
+.navbar a:hover{
+  color: #ecf3f1;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+body {
+  position: relative; /* Garante que o posicionamento absoluto do ::before seja relativo ao body */
+  background-image: url(../assets/Halo-Board-Rendering_1920x1080.jpg);
+  color: #fff;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Cor escura com 50% de opacidade */
+  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do body */
+}
+
+
+
+.questions-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.question {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.answers-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.answer:disabled {
+  cursor: not-allowed;
+}
+
+.next-question {
+  margin-top: 32px;
+}
+
+.button {
+  background-color: #224ea7 ;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0;
+  height: 48px;
+  padding: 0 28px;
+  transition: filter 0.1s;
+}
+
+a {
+  text-decoration: none; 
+  color: inherit; 
+  cursor: pointer; 
+}
+
+a:focus {
+  outline: none;
+}
+
+
+.button:not(:disabled):hover {
+  filter: brightness(0.8);
+}
+
+/* Finish game */
+.final-message {
+  font-size: 20px;
+  text-align: center;
+}
+
+.final-message span {
+  display: block;
+  margin-top: 8px;
+}
+
+/* General styles */
+.hide {
+  display: none;
+}
+
+.correct {
+  background-color: #049b48;
+}
+
+.incorrect {
+  background-color: #a10101;
+}

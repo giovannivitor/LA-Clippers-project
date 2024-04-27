@@ -1,0 +1,162 @@
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body{
+    display: flex;
+    width: 100%;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(90deg, #04112e 0%, #091d47 100%);
+}
+
+.navbar .container_navbar{
+    width: 70%;
+    height: 100%;
+}
+
+.navbar .logo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    align-self: center;
+    
+}
+
+.navbar .logo .fundo_logo{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 70%;
+    height: 100%;
+}
+
+.navbar .logo .fundo_logo p{
+    font-family: titleFont;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.navbar .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    font-family: titleFont;
+    color: white;
+    font-size: 20px;
+}
+
+.navbar .menu a{
+    color: #fff;
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+}
+
+.navbar .menu .menu_item:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.dashboard{
+    width: 80%;
+    height: 100%;
+    background-image: url(../assets/Halo-Board-Rendering_1920x1080.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: subTitleFont;
+    font-size: 12px;
+    color: #fff;
+    text-shadow: 1px 1px black;
+}
+
+.dashboard .dashboard_top{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.grafico_top_left, .grafico_top_right{
+    width: 30%;
+    height: 50%;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 5px #252525;
+
+}
+
+.grafico_top_left{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grafico_top_right{
+    display: flex;
+}
+
+.grafico_top_right .jogador_kpi{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.grafico_top_right .idade_kpi{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+#jogador_preferido, #idade{
+    font-size: 15px;
+    font-family: titleFont;
+}
+
+.grafico{
+    padding: 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard .dashboard_bottom{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .dashboard_bottom .grafico{
+    width: 75%;
+    height: 70%;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 5px #000;
+}

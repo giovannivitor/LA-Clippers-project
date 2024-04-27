@@ -1,1 +1,3 @@
-# LA-Clippers-project
+# 🔵 LA Clippers 🔴
+
+Este projeto foi concebido como parte do trabalho individual requerido durante o primeiro semestre do curso de Análise e Desenvolvimento de Sistemas (ADS) na SPTech. O tema central do projeto é o time de basquete da NBA, Los Angeles Clippers, que inclui um quiz interativo que desafia os usuários a testarem seus conhecimentos sobre os Clippers, desde fatos históricos até estatísticas recentes. Além disso, o site apresenta uma breve história desde a fundação da franquia até os dias atuais, uma visão do elenco atual dos Clippers e uma seção dedicada aos programas educacionais nos quais o time participa, alinhando-se ao quarto objetivo da ONU, "Educação de Qualidade".

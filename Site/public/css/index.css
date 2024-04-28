@@ -45,27 +45,19 @@ body {
     color: #ecf3f1;
 }
 
-
-.banner {
-    background-color: #224ea7;
-    background-size: cover;
-
-}
-
 .banner .container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     background-image: url(../assets/imagemInicio.avif);
     background-size: cover;
-
+    height: 100vh;
 }
 
 .card {
-    height: 100vh;
-    width: 50%;
     display: flex;
-
+    height: 100%;
+    width: 100%;
 }
 
 .titulo {
@@ -78,15 +70,13 @@ body {
     opacity: 0.7;
 }
 
-.banner-2 .flex-container{
+.banner-2 {
     background-color: white;
-    padding-bottom: 1px;
-    padding-top: 30px;
     display: flex;
     flex-direction: column;
-    height: 1190px;
+    height: 100%;
+    width: 100%;
 }
-
 
 .tituloHistoria{
     color: #224ea7;
@@ -94,134 +84,168 @@ body {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.imagemBufallo img{
-    width: 20%;
-    margin-left: 150px;
-    margin-top: 4%;
-}
 
-.texto-direita p {
-    position: relative;
-    top: -290px; 
+.BufalloBraves{
     display: flex;
-    width: 30%;
-    margin-left: 720px;
-    font-size: large;
+    width: 100%;
+    height: 100%;
 }
 
-.anoBufallo img{
-    width: 39%;
+.EsquerdaBufallo{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.DireitaBufallo{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemBufallo img{
+    position: relative;
+    z-index: 1;
+    height: 250px;
+}
+
+.texto-direita {
+    display: flex;
+    width: 59%;
+    font-size: large;
+    flex-direction: column;
+}
+
+.anoBufallo{
     position: absolute;
-    bottom: -38%;
-    left: 13%;
-    
+    z-index: 2;
+    color: #ca3132;
+    font-size: 90px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 110%;
+    left: 31%;
+}
+
+.SanDiego{
+    display: flex;
+    width: 100%;
+    height: 60%;
+}
+
+.EsquerdaSanDiego{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.DireitaSanDiego{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .ImagemSanDiego img{
-    width: 20%;
-    margin-left: 800px;
-    margin-top: -40%;
-}
-
-.anoSanDiego img{
-    width: 39%;
-    position: absolute;
-    bottom: -87%;
-    right: 19%;
-}
-
-.texto-esquerda p {
-    position: relative;
-    top: -250px;
     display: flex;
-    width: 30%;
-    margin-left: 150px;
+    position: relative;
+    z-index: 2;
+    height: 250px;
+}
+
+.anoSanDiego{
+    position: absolute;
+    z-index: 2;
+    color: #ca3e33;
+    font-size: 90px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    right: 27%;
+    top: 155%;
+}
+
+.texto-esquerda{
+    display: flex;
+    width: 59%;
     font-size: large;
-    
+    flex-direction: column;
+}
+
+
+.Clippers{
+    display: flex;
+    width: 100%;
+    height: 60%;
+}
+
+.EsquerdaClippers{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.DireitaClippers{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .ImagemLAclippers img{
-    width: 20%;
-    margin-left: 150px;
-    margin-top: -10%;
-}
-
-.texto-direita-2 p {
+    display: flex;
     position: relative;
-    top: -240px; 
-    display: flex;
-    width: 30%;
-    margin-left: 720px;
-    font-size: large;
+    z-index: 2;
+    height: 240px;
 }
 
-.anoLAclippers img{
-    width: 39%;
-    position: absolute;
-    bottom: -143%;
-    left: 13%;
-    
-}
-.banner-3 .container {
-    background-color: #f5f2f2;
-    padding-bottom: 15px;
-    padding-top: 30px;
+.texto-direita-2 {
     display: flex;
-    justify-content: center;
-    align-items: center; 
+    width: 59%;
+    font-size: large;
     flex-direction: column;
-    
-    
+}
+
+.anoLAclippers{
+    position: absolute;
+    z-index: 2;
+    color: #ee104A;
+    font-size: 90px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 190%;
+    left: 31%;
+}
+
+.banner-3 .container {
+    display: flex;
+    background-color: #f5f2f2; 
+    align-items: center; 
 }
 
 .tituloElenco {
     color: #224ea7;
     text-align: center;
-    margin-bottom: 25px; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.ImagensElenco img {
-    width: 180%;
-    max-width: 260px; 
-    height: auto; 
-    border-radius: 2%;
-    margin: 20px;
-    margin-top: 10px;
-
+.ImagensElenco{
+    display: flex;
+    height: 50vh;
+    justify-content: space-around;
 }
 
-.botaoVejaMais a{
-    min-width: 60px;
-    height: 20px;
-    color: #224ea7;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: absolute;
+.NomeJersey{
     display: flex;
-    outline: none;
-    border-radius: 20px;
-    border: 2px solid #224ea7;;
-    background: #f5f2f2;
-    margin-top: -48px;
-    margin-left: 80%;
-    text-decoration: none;
-    font-weight: bolder;
-    z-index: 0 ;
-  }
-  .botaoVejaMais:hover a{
-    background: #224ea7;;
-    color: #f5f2f2;
-    z-index: 0 ;
-  }
-
-
-  .iconeNoticias{
-    display: flex;
-    flex-direction: column;
-  }
+    align-items: center;
+    justify-content: space-around;
+}
 
   .banner-4 .container {
     background-color: white;
@@ -231,8 +255,6 @@ body {
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    
-    
 }
 
 .banner-4 .container {

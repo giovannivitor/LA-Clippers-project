@@ -91,6 +91,7 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
+    align-items: center;
 }
 
 .EsquerdaBufallo{
@@ -136,6 +137,7 @@ body {
     display: flex;
     width: 100%;
     height: 60%;
+    align-items: center;
 }
 
 .EsquerdaSanDiego{
@@ -183,6 +185,7 @@ body {
     display: flex;
     width: 100%;
     height: 60%;
+    align-items: center;
 }
 
 .EsquerdaClippers{
@@ -247,8 +250,16 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
+    height: 550px;
+    width: 180px;
 }
 
+.jersey img:hover {
+    
+    transition: 0.5s ease-in-out;
+    height: 320px;
+    
+}
 .jersey img {
     height: 300px;
 }
@@ -344,6 +355,8 @@ body {
     transition: all .4s ease-in-out;
 }
 
-
-
-
+.teste{
+    gap: 5vh;
+    display: flex;
+    flex-direction: column;
+}

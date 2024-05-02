@@ -50,14 +50,13 @@ body {
 .banner {
     background-color: #224ea7;
     background-size: cover;
-
 }
 
 .banner .container {
     position: relative;
     justify-content: center;
     align-items: center;
-    height: 96vh;
+    height: 100vh;
     background-image: url(../assets/46437776-92b7-40f1-8aef-12208e579ec4.png);
     background-size: cover;
     border-bottom: #ffffff 3px solid;
@@ -76,15 +75,13 @@ body {
 
 
 .card {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-
-
 
 .titulo {
     color: white;
@@ -97,6 +94,11 @@ body {
 .titulo img{
     display: flex;
     margin-left: 200px;
+}
+
+.Programas .container{  
+    background-color: white;
+    height: 100%;
 }
 
 .ReadToAchieve{

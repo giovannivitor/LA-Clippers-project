@@ -2,47 +2,50 @@
     font-family: Vogue Font;
     src: url(assets/Vogue.ttf);
 }
-
+html{
+    overflow-x: hidden;
+}
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .navbar {
-    background-color: #224ea7;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
+  background-color: #224ea7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  z-index: 1000;
 }
 
 .navbar .container {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar .container ul {
-    width: 530px;
-    font-size: larger;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin-right: 180px;
+  width: 530px;
+  font-size: larger;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-right: 180px;
 }
 
 .navbar a{
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .navbar a:hover{
-    color: #ecf3f1;
+  color: #ecf3f1;
 }
 
 .banner .container {
@@ -66,8 +69,7 @@ body {
     flex-direction: column;
     margin-left: 40px;
     justify-content: center;
-    text-align: left;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .banner-2 {
@@ -126,7 +128,7 @@ body {
     color: #ca3132;
     font-size: 90px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 110%;
+    top: 105%;
     left: 31%;
 }
 
@@ -219,55 +221,53 @@ body {
     color: #ee104A;
     font-size: 90px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 190%;
+    top: 185%;
     left: 31%;
 }
 
 .banner-3 .container {
     display: flex;
-    background-color: #f5f2f2; 
-    align-items: center; 
+    background-color: #f5f2f2;
+    height: 78vh;
+    width: 100%
 }
 
-.tituloElenco {
+.tituloJerseys h2 {
+    display: flex;
     color: #224ea7;
-    text-align: center;
+    justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    position: absolute;
 }
 
-.ImagensElenco{
-    display: flex;
-    height: 50vh;
-    justify-content: space-around;
-}
-
-.NomeJersey{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-  .banner-4 .container {
-    background-color: white;
-    padding-bottom: 15px;
-    padding-top: 30px;
+.jersey {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
+    margin: 0 auto;
 }
 
-.banner-4 .container {
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
+.jersey img {
+    height: 300px;
+}
+
+.jersey h4{
+    font-weight: bolder;
+    color: #224ea7;
+}
+.banner-4{
+    background-color: white;
     display: flex;
-  }
+    flex-direction: column;
+    align-items: center;
+}
 
 .TituloSobreMim {
     color: #224ea7;
+    margin: 0;
     text-align: center;
-    margin-bottom: 20px; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 

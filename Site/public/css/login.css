@@ -51,18 +51,6 @@ body {
     background-size: cover;
 }
 
-.banner .container {
-    justify-content: center;
-    align-items: center;
-    height: 470px;
-}
-
-.banner .container p {
-    font-size: 36px;
-    color: white;
-    width: 280px;
-}
-
 .card {
     width: 30%;
     background-color: #e5e5e5;
@@ -87,32 +75,23 @@ body {
     display: flex;
     height: 90%;
     width: 80%;
-    justify-content: space-around;
-    flex-direction: column;
-    background-color: #e5e5e5;
-    margin-bottom: 3px;
-}
-.campo{
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    flex-direction: column;
+    background-color: #e5e5e5 ;
 }
-
-.campo input {
+.formulario span{
+    margin-right: 10px;
+    margin: -5px;
+}
+.formulario input{
     border: 2px solid #e5e5e5;
     text-align: center;
+    margin: 0.5px;
+    width: 160px;
 }
 
-.campo img{
-    height: 20px;
-}
-
-
-.card {
+.card{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 21%;
     height: 55%;
 }
@@ -120,11 +99,10 @@ body {
 .login .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin-top: 150px;
 }
 
-.botao {
+.botao{
     border: 0;
     font-weight: 504;
     font-size: 19px;
@@ -135,15 +113,13 @@ body {
     margin-bottom: 10px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
-    border: 2px solid #224ea7;
-    ;
+    border: 2px solid #224ea7;;
     background: #224ea7;
 }
-
 .botao:hover {
     background: #e5e5e5;
     color: #224ea7
-}
+  }
 
 .login {
     position: relative;
@@ -165,16 +141,14 @@ body {
     z-index: 1;
 }
 
-.mensagemCadastro {
+.mensagemCadastro{
     font-size: medium;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 30px;
     font-weight: normal;
     color: #224ea7;
-    margin-top: 10px;
 }
 
-.mensagemCadastro a {
+.mensagemCadastro a{
     color: #224ea7;
 }
 

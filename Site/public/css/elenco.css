@@ -71,16 +71,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
 }
 
 .box{
     padding: 5%;
     width: 100%;
     height: auto;
-    margin: 30px;
-    border-bottom: #BEC0C2 1px solid;
-    border-right: #BEC0C2 1px solid;
+    border-right: #224ea7 2px solid;
 }
 
 .circulo {
@@ -91,7 +88,7 @@ body {
 
 .circulo img {
     height: 150%; 
-    width: 150%;
+    width: 140%;
 }
 
 .cabecalho {

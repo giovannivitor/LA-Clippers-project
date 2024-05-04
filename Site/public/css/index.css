@@ -125,16 +125,6 @@ body {
     flex-direction: column;
 }
 
-.anoBufallo {
-    position: absolute;
-    z-index: 2;
-    color: #ca3132;
-    font-size: 90px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 105%;
-    left: 31%;
-}
-
 .SanDiego {
     display: flex;
     width: 100%;
@@ -165,23 +155,12 @@ body {
     height: 250px;
 }
 
-.anoSanDiego {
-    position: absolute;
-    z-index: 2;
-    color: #ca3e33;
-    font-size: 90px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    right: 27%;
-    top: 155%;
-}
-
 .texto-esquerda {
     display: flex;
     width: 59%;
     font-size: large;
     flex-direction: column;
 }
-
 
 .Clippers {
     display: flex;
@@ -196,6 +175,7 @@ body {
     height: 100%;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .DireitaClippers {
@@ -218,16 +198,6 @@ body {
     width: 59%;
     font-size: large;
     flex-direction: column;
-}
-
-.anoLAclippers {
-    position: absolute;
-    z-index: 2;
-    color: #ee104A;
-    font-size: 90px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 185%;
-    left: 31%;
 }
 
 .banner-3 .container {
@@ -324,17 +294,18 @@ body {
 }
 
 .logotipo2 {
+    height: 100%;
     width: 50%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    color: #ecf3f1;
     align-items: center;
+    justify-content: center;
+    color: #ecf3f1;
 }
 
 .contato {
     height: 100%;
-    width: 80%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;

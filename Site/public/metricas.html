@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="menu">
-                <p id="nome_usuario">BEM VINDO</span></p>
+                <p id="nome_usuario"></span></p>
                 <a class="menu_item" href="index.html">HOME</a>
                 <a class="menu_item" href="#">DASHBOARD</a>
                 <a class="menu_item" href="avaliacao.html">AVALIAÇÃO</a>
@@ -51,7 +51,6 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
 <script>
@@ -70,10 +69,9 @@
             nome += sessionStorage.NOME_USUARIO[contadorLetras];
         }
 
-        nome_usuario.innerHTML = `OLÁ, ${(nome)}`;
+        nome_usuario.innerHTML = `Olá, ${(nome)}!`;
     }
 
-    var listaCores = [[], []];
 
     var idadeMedia = 0;
     var roncoPreferido = "";

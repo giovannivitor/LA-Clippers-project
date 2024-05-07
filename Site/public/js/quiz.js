@@ -19,7 +19,7 @@ function startGame() {
 
 function displayNextQuestion() {
   resetState()
-  
+
   if (questions.length === currentQuestionIndex) {
     return finishGame()
   }
@@ -39,7 +39,7 @@ function displayNextQuestion() {
 }
 
 function resetState() {
-  while($answersContainer.firstChild) {
+  while ($answersContainer.firstChild) {
     $answersContainer.removeChild($answersContainer.firstChild)
   }
 
@@ -54,7 +54,7 @@ function selectAnswer(event) {
     document.body.classList.add("correct")
     totalCorrect++
   } else {
-    document.body.classList.add("incorrect") 
+    document.body.classList.add("incorrect")
   }
 
   document.querySelectorAll(".answer").forEach(button => {
@@ -66,7 +66,7 @@ function selectAnswer(event) {
       button.classList.add("incorrect")
     }
   })
-  
+
   $nextQuestionButton.classList.remove("hide")
   currentQuestionIndex++
 }
@@ -74,7 +74,7 @@ function selectAnswer(event) {
 function finishGame() {
   const totalQuestions = questions.length
   const performance = Math.floor(totalCorrect * 100 / totalQuestions)
-  
+
   let message = ""
 
   switch (true) {
@@ -91,8 +91,8 @@ function finishGame() {
       message = "Péssimo, e você provavelmente torce para o Lakers"
   }
 
-  $questionsContainer.innerHTML = 
-  `
+  $questionsContainer.innerHTML =
+    `
     <p class="final-message">
       Você acertou ${totalCorrect} de ${totalQuestions} questões!
       <span>Resultado: ${message}</span>
@@ -109,6 +109,18 @@ function finishGame() {
     </a>
   
   `
+  fetch(`pontuacao/registrar/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify({
+      pontosServer: totalCorrect
+    })
+  }).then(res => {
+    console.log(res);
+  })
+  console.log(totalCorrect);
 }
 
 

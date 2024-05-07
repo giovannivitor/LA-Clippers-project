@@ -73,6 +73,21 @@ function cadastrar(req, res) {
     }
 }
 
+function registrarDados(req, res){
+    var pontos = req.body.pontosServer
+
+    usuarioModel.registrarDados(pontos)
+        .then(
+            function (resultado) {
+                res.status(201).send("ai ai")
+            }
+        ) //.catch(
+          //  function (erro) {
+          //      c
+          //  }
+        //)
+}
+
 function puxarDados(req, res){
     usuarioModel.puxarDados()
     .then(function(result){
@@ -85,5 +100,6 @@ function puxarDados(req, res){
 module.exports = {
     autenticar,
     cadastrar,
+    registrarDados,
     puxarDados
 }

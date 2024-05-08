@@ -5,6 +5,8 @@ const $questionText = document.querySelector(".question")
 const $answersContainer = document.querySelector(".answers-container")
 const $answers = document.querySelectorAll(".answer")
 
+const id = Number(sessionStorage.getItem("id"))
+
 let currentQuestionIndex = 0
 let totalCorrect = 0
 

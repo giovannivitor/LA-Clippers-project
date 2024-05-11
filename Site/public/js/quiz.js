@@ -5,7 +5,7 @@ const $questionText = document.querySelector(".question")
 const $answersContainer = document.querySelector(".answers-container")
 const $answers = document.querySelectorAll(".answer")
 
-const id = Number(sessionStorage.getItem("id"))
+const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
 
 let currentQuestionIndex = 0
 let totalCorrect = 0
@@ -111,7 +111,7 @@ function finishGame() {
     </a>
   
   `
-  fetch(`pontuacao/registrar/${id}`, {
+  fetch(`pontuacao/registrar/${ID_USUARIO}`, {
     method: "POST",
     headers: {
       "Content-type": "application/json"

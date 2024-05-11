@@ -9,13 +9,19 @@ function registrarDados(req, res){
             function (resultado) {
                 res.status(201).send("ai ai")
             }
-        ) //.catch(
-          //  function (erro) {
-          //      c
-          //  }
-        //)
+        ) 
+}
+
+function puxarDados(req, res){
+    pontuacaoModel.registrarPontosMax()
+    .then(function(result){
+        res.status(200).json(result)
+    }).catch(function(error){
+        console.log(error);
+    })
 }
 
 module.exports = {
-    registrarDados
+    registrarDados,
+    puxarDados
 }

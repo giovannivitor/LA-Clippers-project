@@ -6,6 +6,16 @@ function registrar(pontos, fkUsuario) {
     return database.executar(instrucao);
 }
 
+function registrarPontosMax() {
+    var instrucao = `
+    SELECT fkUsuario, MAX(pontos) AS pontuacao_maxima
+    FROM pontuacao
+    GROUP BY fkUsuario;
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    registrar
+    registrar,
+    registrarPontosMax
 };

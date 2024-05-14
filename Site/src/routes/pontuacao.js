@@ -8,7 +8,7 @@ router.post("/registrar/:fkUsuario", function (req, res) {
     pontuacaoController.registrarDados(req, res);
 })
 
-router.get("/puxar", function (req, res) {
+router.get("/puxar/:idUsuario", function (req, res) {
     pontuacaoController.puxarDados(req, res)
 });
 

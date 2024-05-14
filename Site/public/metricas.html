@@ -31,16 +31,16 @@
         <div class="dashboard_top">
             <div class="grafico_top_left">
                 <h2>SUA PONTUAÇÃO MÁXIMA</h2>
-                <canvas id="myChart1" height="100px" width="100px"></canvas>
+                <span id="myChart1"></span>
             </div>
             <div class="grafico_top_right">
                 <div class="jogador_kpi">
-                    <h2>JOGADOR PREFERIDO</h2>
-                    <span id="jogador_preferido">Paul George</span>
+                    <h2>SUA PONTUAÇÃO MÁXIMA</h2>
+                    <span id="pontuacaoMax" style="font-size: x-large;"></span>
                 </div>
                 <div class="idade_kpi">
                     <h2>IDADE MÉDIA DOS USUARIOS</h2>
-                    <span id="idade"></span>
+                    <span id="idade" style="font-size: x-large;"></span>
                 </div>
             </div>
         </div>
@@ -55,6 +55,7 @@
 
 </html>
 <script>
+    const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
     if (sessionStorage.length <= 0) {
 
 
@@ -76,11 +77,12 @@
 
     var idadeMedia = 0;
 
-    fetch(`/pontuacao/puxar`)
+    fetch(`/pontuacao/puxar/${ID_USUARIO}`)
         .then(function (resposta) {
 
+            console.log(resposta)
             resposta.json().then(function (resposta) {
-                myChart1.innerHTML = resposta[0].pontuacao_maxima
+                pontuacaoMax.innerHTML = resposta.pontuacao_maxima
             })
         });
 

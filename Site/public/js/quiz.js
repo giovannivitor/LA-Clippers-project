@@ -123,7 +123,23 @@ function finishGame() {
     console.log(res);
   })
   console.log(totalCorrect);
+
+  fetch(`pontuacao/registrarPontosMax/${ID_USUARIO}`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify({
+      pontosServer: totalCorrect
+    })
+  }).then(res => {
+    console.log(res);
+  })
+  console.log(totalCorrect);
 }
+
+
+
 
 
 const questions = [

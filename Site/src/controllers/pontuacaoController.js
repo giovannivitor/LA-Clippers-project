@@ -7,18 +7,20 @@ function registrarDados(req, res){
     pontuacaoModel.registrar(pontos, fkUsuario)
         .then(
             function (resultado) {
-                res.status(201).send("ai ai")
+                res.status(201).send({})
             }
         ) 
 }
 
 function puxarDados(req, res){
-    pontuacaoModel.registrarPontosMax()
-    .then(function(result){
-        res.status(200).json(result)
-    }).catch(function(error){
-        console.log(error);
-    })
+    var fkUsuario = req.params.idUsuario
+    
+    pontuacaoModel.registrarPontosMax(fkUsuario)
+        .then(
+            function (resultado) {
+                res.status(201).send(resultado[0])
+            }
+        ) 
 }
 
 module.exports = {

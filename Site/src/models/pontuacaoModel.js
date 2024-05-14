@@ -6,11 +6,11 @@ function registrar(pontos, fkUsuario) {
     return database.executar(instrucao);
 }
 
-function registrarPontosMax() {
+function registrarPontosMax(fkUsuario) {
+
     var instrucao = `
-    SELECT fkUsuario, MAX(pontos) AS pontuacao_maxima
-    FROM pontuacao
-    GROUP BY fkUsuario;
+    SELECT MAX(pontos) AS pontuacao_maxima
+    FROM pontuacao JOIN usuario ON fkUsuario = '${fkUsuario}';
     `
     return database.executar(instrucao);
 }

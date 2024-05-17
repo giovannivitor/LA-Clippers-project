@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> LA Clippers | Dashboard</title>
+    <title>LA Clippers | Avaliação</title>
     <link rel="stylesheet" href="css/styleFonts.css">
     <link rel="stylesheet" href="css/metricas.css">
     <link rel="icon" type="img/png" href="assets/IconLAClippers.png">
-    <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -22,39 +21,16 @@
             <div class="menu">
                 <p id="nome_usuario"></span></p>
                 <a class="menu_item" href="index.html">HOME</a>
-                <a class="menu_item" href="#">DASHBOARD</a>
+                <a class="menu_item" href="metricas.html">DASHBOARD</a>
                 <a class="menu_item" href="avaliacao.html">AVALIAÇÃO</a>
                 <p class="menu_item" onclick="sair()">SAIR</p>
-            </div>
-        </div>
-    </div>
-    <div class="dashboard">
-        <div class="dashboard_top">
-            <div class="grafico_top_left">
-                <h2>SUA PONTUAÇÃO MÁXIMA</h2>
-                <span id="myChart1"></span>
-            </div>
-            <div class="grafico_top_right">
-                <div class="jogador_kpi">
-                    <h2>SUA PONTUAÇÃO MÁXIMA</h2>
-                    <span id="pontuacaoMax" style="font-size: x-large;"></span>
-                </div>
-                <div class="idade_kpi">
-                    <h2>IDADE MÉDIA DOS USUARIOS</h2>
-                    <span id="idade" style="font-size: x-large;"></span>
-                </div>
-            </div>
-        </div>
-        <div class="dashboard_bottom">
-            <div class="grafico">
-                <h2>PONTUAÇÃO MÉDIA</h2>
-                <canvas id="myChart2"></canvas>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
 <script>
     const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
     if (sessionStorage.length <= 0) {
@@ -74,29 +50,6 @@
 
         nome_usuario.innerHTML = `Olá, ${(nome)}!`;
     }
-
-
-    var idadeMedia = 0;
-
-    fetch(`/pontuacao/puxar/${ID_USUARIO}`)
-        .then(function (resposta) {
-
-            console.log(resposta)
-            resposta.json().then(function (resposta) {
-                pontuacaoMax.innerHTML = resposta.pontuacao_maxima
-            })
-        });
-
-
-    fetch(`/usuarios/puxar`)
-        .then(function (resposta) {
-
-            resposta.json().then(function (resposta) {
-                idade.innerHTML = resposta[0].media_idade
-            })
-        });
-
-
 
     function sair() {
         sessionStorage.clear();

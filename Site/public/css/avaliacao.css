@@ -4,11 +4,13 @@ html{
 }
 
 body{
+    background-image: url(../assets/ImagemLogin.jpg);
     display: flex;
     width: 100%;
     height: 100vh; 
     margin: 0;
     padding: 0;
+    background-size: cover;
 }
 
 .navbar{
@@ -70,4 +72,74 @@ body{
 .navbar .menu .menu_item:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.avaliacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    font-family: titleFont;
+    color: #fff;
+}
+
+.avaliacao .container_card{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    height: 64%;
+    backdrop-filter: blur(20px);
+    box-shadow: 3px 3px #252525;
+}
+
+.avaliacao .container_card .feedback{
+    height: 100px;
+    width: 70%;
+    border: 4px solid #091d47;
+    background-color: transparent;
+    border-radius: 20px;
+    font-family: textFont;
+    font-size: 30px;
+    color: #091d47;
+    padding: 5px;
+}
+
+
+.avaliacao .container_card .avaliacao_estrelas{
+    display: flex;
+    width: 80%;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+.avaliacao .container_card .avaliacao_estrelas img{
+    width: 100px;
+    height: 100px;
+}
+
+.avaliacao .container_card .avaliacao_estrelas img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.avaliacao .container_card button{
+    background-color: #091d47;
+    width: 130px;
+    height: 30px;
+    border: 1px solid #224ea7;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.avaliacao .container_card button:hover{
+    background-color: transparent;
+    color: #fff;
+    background-color: #224ea7;
 }

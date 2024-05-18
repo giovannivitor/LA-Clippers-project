@@ -32,7 +32,7 @@
         <div class="dashboard_top">
             <div class="grafico_top_left">
                 <h2>SUA PONTUAÇÃO MÁXIMA</h2>
-                <span id="myChart1"></span>
+                <canvas id="myChart1" style="position: relative; height: 60px; width: 60px;"></canvas>
             </div>
             <div class="grafico_top_right">
                 <div class="jogador_kpi">
@@ -48,7 +48,7 @@
         <div class="dashboard_bottom">
             <div class="grafico">
                 <h2>PONTUAÇÃO MÉDIA</h2>
-                <canvas id="myChart2"></canvas>
+                <canvas id="myChart2" style="position: relative; height: 10vh; width: 10vw;"></canvas>
             </div>
         </div>
     </div>
@@ -95,6 +95,50 @@
                 idade.innerHTML = resposta[0].media_idade
             })
         });
+
+    const ctx = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['1', '2', '3', '4', '5', '6', '7'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3, 9],
+                backgroundColor: 'red',
+                borderColor: 'red',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+
+    const ctxx = document.getElementById('myChart1');
+
+    new Chart(ctxx, {
+        type: 'doughnut',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 100],
+                backgroundColor: [
+                    'skyblue',
+                    'blue',
+                    'red'
+                ],
+                hoverOffset: 2
+            }]
+        },
+    });
 
 
 

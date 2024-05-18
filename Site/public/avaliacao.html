@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LA Clippers | Avaliação</title>
     <link rel="stylesheet" href="css/styleFonts.css">
-    <link rel="stylesheet" href="css/metricas.css">
+    <link rel="stylesheet" href="css/avaliacao.css">
     <link rel="icon" type="img/png" href="assets/IconLAClippers.png">
 </head>
 
@@ -25,6 +25,20 @@
                 <a class="menu_item" href="avaliacao.html">AVALIAÇÃO</a>
                 <p class="menu_item" onclick="sair()">SAIR</p>
             </div>
+        </div>
+    </div>
+
+    <div class="avaliacao">
+        <div class="container_card">
+            <h1>AVALIE SUA EXPERIÊNCIA</h1>
+            <div class="avaliacao_estrelas">
+                <div id="star1" onclick="estrela1()"><img src="assets/EstrelaApagada.png" alt=""></div>
+                <div id="star2" onclick="estrela2()"><img src="assets/EstrelaApagada.png" alt=""></div>
+                <div id="star3" onclick="estrela3()"><img src="assets/EstrelaApagada.png" alt=""></div>
+                <div id="star4" onclick="estrela4()"><img src="assets/EstrelaApagada.png" alt=""></div>
+                <div id="star5" onclick="estrela5()"><img src="assets/EstrelaApagada.png" alt=""></div>
+            </div>
+            <button onclick="enviarFeedback()">AVALIAR</button>
         </div>
     </div>
 </body>
@@ -49,6 +63,61 @@
         }
 
         nome_usuario.innerHTML = `Olá, ${(nome)}!`;
+    }
+    function estrela1() {
+        avaliacao = 1;
+        for (var contadorEstrela = 1; contadorEstrela <= 5; contadorEstrela++) {
+            var idEstrela = document.getElementById(`star${contadorEstrela}`);
+            if (contadorEstrela <= avaliacao) {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaAmarela.png" alt="">`;
+            } else {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
+            }
+        }
+    }
+    function estrela2() {
+        avaliacao = 2;
+        for (var contadorEstrela = 1; contadorEstrela <= 5; contadorEstrela++) {
+            var idEstrela = document.getElementById(`star${contadorEstrela}`);
+            if (contadorEstrela <= avaliacao) {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaAmarela.png" alt="">`;
+            } else {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
+            }
+        }
+    }
+    function estrela3() {
+        avaliacao = 3;
+        for (var contadorEstrela = 1; contadorEstrela <= 5; contadorEstrela++) {
+            var idEstrela = document.getElementById(`star${contadorEstrela}`);
+            if (contadorEstrela <= avaliacao) {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaAmarela.png" alt="">`;
+            } else {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
+            }
+        }
+    }
+    function estrela4() {
+        avaliacao = 4;
+        for (var contadorEstrela = 1; contadorEstrela <= 5; contadorEstrela++) {
+            var idEstrela = document.getElementById(`star${contadorEstrela}`);
+            if (contadorEstrela <= avaliacao) {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaAmarela.png" alt="">`;
+            } else {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
+            }
+        }
+    }
+    function estrela5() {
+        avaliacao = 5;
+        for (var contadorEstrela = 1; contadorEstrela <= 5; contadorEstrela++) {
+            var idEstrela = document.getElementById(`star${contadorEstrela}`);
+            if (contadorEstrela <= avaliacao) {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaAmarela.png" alt="">`;
+            } else {
+                idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
+            }
+        }
     }
 
     function sair() {

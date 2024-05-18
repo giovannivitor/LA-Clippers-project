@@ -54,7 +54,7 @@ button {
 }
 
 body {
-  position: relative; /* Garante que o posicionamento absoluto do ::before seja relativo ao body */
+  position: relative;
   background-image: url(../assets/Halo-Board-Rendering_1920x1080.jpg);
   color: #fff;
   background-size: cover;
@@ -71,8 +71,8 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Cor escura com 50% de opacidade */
-  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do body */
+  background-color: rgba(0, 0, 0, 0.8); 
+  z-index: -1; /
 }
 
 

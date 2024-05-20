@@ -38,7 +38,8 @@
                 <div id="star4" onclick="estrela4()"><img src="assets/EstrelaApagada.png" alt=""></div>
                 <div id="star5" onclick="estrela5()"><img src="assets/EstrelaApagada.png" alt=""></div>
             </div>
-            <button onclick="enviarFeedback()">AVALIAR</button>
+            <button onclick="enviarAvaliacao()">AVALIAR</button>
+            <div id="div_mensagem"></div>
         </div>
     </div>
 </body>
@@ -47,6 +48,7 @@
 
 <script>
     const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
+    var avaliacao = 0
     if (sessionStorage.length <= 0) {
 
 
@@ -117,6 +119,15 @@
             } else {
                 idEstrela.innerHTML = `<img class="star" src="assets/EstrelaApagada.png" alt="">`;
             }
+        }
+    }
+
+    function enviarAvaliacao(){
+        if(avaliacao >= 1){
+            div_mensagem.innerHTML = `Você avaliou o site com a nota ${avaliacao}`
+        }
+        else{
+            div_mensagem.innerHTML = `Avaliação invalida`
         }
     }
 

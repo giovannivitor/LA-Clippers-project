@@ -11,7 +11,7 @@
     <script src="https:///cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
     <div class="navbar">
         <div class="container_navbar">
             <div class="logo">
@@ -95,50 +95,102 @@
                 idade.innerHTML = resposta[0].media_idade
             })
         });
+        var qtdVezes=[]
+        var pontos=[]
+    function obterDadosGrafico(idAquario) {
 
-    const ctx = document.getElementById('myChart2');
+        fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    for(var i=0; i<resposta.length; i++) {
+            var element =  resposta[i]
+            qtdVezes.push(resposta[i]. pontos_usuarios)
+            pontos.push(resposta[i].qtdPontos)
+        }
+                   plotarGrafico(resposta);
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3, 9],
-                backgroundColor: 'red',
-                borderColor: 'red',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, idAquario) {
+
+        console.log('iniciando plotagem do gráfico...');
+       
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+      
+        // Criando estrutura para plotar gráfico - dados
+        const ctx = document.getElementById('myChart2');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pontos,
+                datasets: [{
+                    data: qtdVezes,
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    Color:'red',
+                    borderWidth: 1
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
+        });
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.umidade);
+            dados.datasets[1].data.push(registro.temperatura);
         }
-    });
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas${idAquario}`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+    }
 
 
-
-    const ctxx = document.getElementById('myChart1');
-
-    new Chart(ctxx, {
-        type: 'doughnut',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'My First Dataset',
-                data: [300, 100],
-                backgroundColor: [
-                    'skyblue',
-                    'blue',
-                    'red'
-                ],
-                hoverOffset: 2
-            }]
-        },
-    });
 
 
 

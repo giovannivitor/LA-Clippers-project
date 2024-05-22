@@ -17,8 +17,9 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
-var pontuacaoRouter = require("./src/routes/pontuacao")
-var dashRouter = require("./src/routes/dash")
+var pontuacaoRouter = require("./src/routes/pontuacao");
+var dashRouter = require("./src/routes/dash");
+var avaliacaoRouter = require("./src/routes/avaliacao");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +31,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/pontuacao", pontuacaoRouter);
 app.use("/dash", dashRouter);
+app.use("/avaliacao", avaliacaoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

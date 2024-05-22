@@ -218,7 +218,7 @@ body {
     background: linear-gradient(90deg, #122a5a 0%, #2c5fc5 100%);
     display: flex;
     flex-direction: row;
-    height: 40vh;
+    height: 35vh;
     width: 100%;
 }
 

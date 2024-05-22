@@ -31,8 +31,8 @@
     <div class="dashboard">
         <div class="dashboard_top">
             <div class="grafico_top_left">
-                <h2>SUA PONTUAÇÃO MÁXIMA</h2>
-                <canvas id="myChart1" style="position: relative; height: 60px; width: 60px;"></canvas>
+                <h2>% DE AVALIAÇÕES MÁXIMAS</h2>
+                <canvas id="myChart1" style="position: relative; height: 20px; width: 60px;"></canvas>
             </div>
             <div class="grafico_top_right">
                 <div class="jogador_kpi">
@@ -47,7 +47,7 @@
         </div>
         <div class="dashboard_bottom">
             <div class="grafico">
-                <h2>PONTUAÇÃO MÉDIA</h2>
+                <h2>PONTUAÇÃO DOS USUARIOS</h2>
                 <canvas id="myChart2" style="position: relative; height: 10vh; width: 10vw;"></canvas>
             </div>
         </div>
@@ -95,8 +95,8 @@
                 idade.innerHTML = resposta[0].media_idade
             })
         });
-        var qtdVezes=[]
-        var pontos=[]
+    var qtdVezes = []
+    var pontos = []
     function obterDadosGrafico(idAquario) {
 
         fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
@@ -104,12 +104,32 @@
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
-                    for(var i=0; i<resposta.length; i++) {
-            var element =  resposta[i]
-            qtdVezes.push(resposta[i]. pontos_usuarios)
-            pontos.push(resposta[i].qtdPontos)
-        }
-                   plotarGrafico(resposta);
+                    for (var i = 0; i < resposta.length; i++) {
+                        var element = resposta[i]
+                        qtdVezes.push(resposta[i].pontos_usuarios)
+                        pontos.push(resposta[i].qtdPontos)
+                    }
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+        fetch(`/dash/buscarUltimasMedida`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    for (var i = 0; i < resposta.length; i++) {
+                        var element = resposta[i]
+                        qtdVotos.push(resposta[i].porcentagem_5)
+                    }
+                    plotarGrafic(resposta);
 
                 });
             } else {
@@ -127,10 +147,10 @@
     function plotarGrafico(resposta, idAquario) {
 
         console.log('iniciando plotagem do gráfico...');
-       
+
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
-      
+
         // Criando estrutura para plotar gráfico - dados
         const ctx = document.getElementById('myChart2');
 
@@ -142,7 +162,7 @@
                     data: qtdVezes,
                     backgroundColor: 'red',
                     borderColor: 'red',
-                    Color:'red',
+                    Color: 'red',
                     borderWidth: 1
                 }],
             },
@@ -155,44 +175,29 @@
             }
         });
 
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
+        const myChart1 = document.getElementById('myChart1');
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
+        new Chart(myChart1, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: qtdVezes,
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    Color: 'red',
+                    borderWidth: 1
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
     }
-
-
-
-
 
     function sair() {
         sessionStorage.clear();

@@ -7,4 +7,8 @@ router.get("/buscarUltimasMedidas", function (req, res) {
     dashController.buscarUltimasMedidas(req, res);
 });
 
+router.get("/buscarUltimasMedida", function (req, res) {
+    dashController.buscarUltimasMedida(req, res);
+});
+
 module.exports = router;

@@ -1,60 +1,60 @@
-const $startGameButton = document.querySelector(".start-quiz")
-const $nextQuestionButton = document.querySelector(".next-question")
-const $questionsContainer = document.querySelector(".questions-container")
-const $questionText = document.querySelector(".question")
-const $answersContainer = document.querySelector(".answers-container")
-const $answers = document.querySelectorAll(".answer")
+const comecarQuiz = document.querySelector(".start-quiz")
+const proximaPergunta = document.querySelector(".next-question")
+const retanguloPergunta = document.querySelector(".questions-container")
+const pergunta = document.querySelector(".question")
+const retanguloResposta = document.querySelector(".answers-container")
+const resposta = document.querySelectorAll(".answer")
 
 const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
 
-let currentQuestionIndex = 0
-let totalCorrect = 0
+let perguntaAtual = 0
+let totalCorretas = 0
 
-$startGameButton.addEventListener("click", startGame)
-$nextQuestionButton.addEventListener("click", displayNextQuestion)
+comecarQuiz.addEventListener("click", comecarJogo)
+proximaPergunta.addEventListener("click", displayNextQuestion)
 
-function startGame() {
-  $startGameButton.classList.add("hide")
-  $questionsContainer.classList.remove("hide")
+function comecarJogo() {
+  comecarQuiz.classList.add("hide")
+  retanguloPergunta.classList.remove("hide")
   displayNextQuestion()
 }
 
 function displayNextQuestion() {
   resetState()
 
-  if (questions.length === currentQuestionIndex) {
-    return finishGame()
+  if (questions.length === perguntaAtual) {
+    return finalizarQuiz()
   }
 
-  $questionText.textContent = questions[currentQuestionIndex].question
-  questions[currentQuestionIndex].answers.forEach(answer => {
+  pergunta.textContent = questions[perguntaAtual].question
+  questions[perguntaAtual].answers.forEach(answer => {
     const newAsnwer = document.createElement("button")
     newAsnwer.classList.add("button", "answer")
     newAsnwer.textContent = answer.text
     if (answer.correct) {
       newAsnwer.dataset.correct = answer.correct
     }
-    $answersContainer.appendChild(newAsnwer)
+    retanguloResposta.appendChild(newAsnwer)
 
     newAsnwer.addEventListener("click", selectAnswer)
   })
 }
 
 function resetState() {
-  while ($answersContainer.firstChild) {
-    $answersContainer.removeChild($answersContainer.firstChild)
+  while (retanguloResposta.firstChild) {
+    retanguloResposta.removeChild(retanguloResposta.firstChild)
   }
 
   document.body.removeAttribute("class")
-  $nextQuestionButton.classList.add("hide")
+  proximaPergunta.classList.add("hide")
 }
 
 function selectAnswer(event) {
-  const answerClicked = event.target
+  const respostaClicada = event.target
 
-  if (answerClicked.dataset.correct) {
+  if (respostaClicada.dataset.correct) {
     document.body.classList.add("correct")
-    totalCorrect++
+    totalCorretas++
   } else {
     document.body.classList.add("incorrect")
   }
@@ -69,34 +69,32 @@ function selectAnswer(event) {
     }
   })
 
-  $nextQuestionButton.classList.remove("hide")
-  currentQuestionIndex++
+  proximaPergunta.classList.remove("hide")
+  perguntaAtual++
 }
 
-function finishGame() {
-  const totalQuestions = questions.length
-  const performance = Math.floor(totalCorrect * 100 / totalQuestions)
+function finalizarQuiz() {
+  const totaldeQuestoes = questions.length
+  const performance = Math.floor(totalCorretas * 100 / totaldeQuestoes)
 
   let message = ""
-
-  switch (true) {
-    case (performance >= 90):
+    if (performance >= 90){
       message = "Excelente, você é um verdadeiro fã do Los Angeles Clippers!"
-      break
-    case (performance >= 70):
+    }
+    else if (performance >= 70){
       message = "Muito bom, você é um grande fã do Clippers!"
-      break
-    case (performance >= 50):
+    }
+    else if (performance >= 50){
       message = "Bom, você é um torcedor iniciante do Clippers"
-      break
-    default:
+    }
+    else{
       message = "Péssimo, e você provavelmente torce para o Lakers"
-  }
+    }
 
-  $questionsContainer.innerHTML =
+  retanguloPergunta.innerHTML =
     `
     <p class="final-message">
-      Você acertou ${totalCorrect} de ${totalQuestions} questões!
+      Você acertou ${totalCorretas} de ${totaldeQuestoes} questões!
       <span>Resultado: ${message}</span>
     </p>
     <button 
@@ -117,12 +115,12 @@ function finishGame() {
       "Content-type": "application/json"
     },
     body: JSON.stringify({
-      pontosServer: totalCorrect
+      pontosServer: totalCorretas
     })
   }).then(res => {
     console.log(res);
   })
-  console.log(totalCorrect);
+  console.log(totalCorretas);
 
   fetch(`pontuacao/registrarPontosMax/${ID_USUARIO}`, {
     method: "POST",
@@ -130,12 +128,12 @@ function finishGame() {
       "Content-type": "application/json"
     },
     body: JSON.stringify({
-      pontosServer: totalCorrect
+      pontosServer: totalCorretas
     })
   }).then(res => {
     console.log(res);
   })
-  console.log(totalCorrect);
+  console.log(totalCorretas);
 }
 
 

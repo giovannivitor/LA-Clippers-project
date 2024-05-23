@@ -10,7 +10,10 @@ function buscarUltimasMedidas() {
 
 function buscarUltimasMedida() {
 
-    var instrucaoSql = `SELECT ROUND(COUNT(CASE WHEN nota = 5 THEN 1 END) * 100.0 / COUNT(*)) AS porcentagem_5 FROM avaliacao;`;
+    var instrucaoSql = `SELECT 
+    ROUND(COUNT(CASE WHEN nota = 5 THEN 1 END) * 100.0 / COUNT(*), 2) AS porcentagem_5,
+    ROUND(COUNT(CASE WHEN nota < 5 THEN 1 END) * 100.0 / COUNT(*), 2) AS quantidade_menos_5
+FROM avaliacao;` ;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

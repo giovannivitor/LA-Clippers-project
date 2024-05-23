@@ -32,7 +32,7 @@
         <div class="dashboard_top">
             <div class="grafico_top_left">
                 <h2>% DE AVALIAÇÕES MÁXIMAS</h2>
-                <canvas id="myChart1" style="position: relative; height: 20px; width: 60px;"></canvas>
+                <canvas id="myChart1" style="position: relative; height: 400; width: 400;"></canvas>
             </div>
             <div class="grafico_top_right">
                 <div class="jogador_kpi">
@@ -48,7 +48,7 @@
         <div class="dashboard_bottom">
             <div class="grafico">
                 <h2>PONTUAÇÃO DOS USUARIOS</h2>
-                <canvas id="myChart2" style="position: relative; height: 10vh; width: 10vw;"></canvas>
+                <canvas id="myChart2" style="position: relative; height: 10vh; width: 13vw;"></canvas>
             </div>
         </div>
     </div>
@@ -97,6 +97,8 @@
         });
     var qtdVezes = []
     var pontos = []
+    var qtdVotos = []
+    var qtdVotosAbaixo = []
     function obterDadosGrafico(idAquario) {
 
         fetch(`/dash/buscarUltimasMedidas`, { cache: 'no-store' }).then(function (response) {
@@ -128,6 +130,7 @@
                     for (var i = 0; i < resposta.length; i++) {
                         var element = resposta[i]
                         qtdVotos.push(resposta[i].porcentagem_5)
+                        qtdVotosAbaixo.push(resposta[i].quantidade_menos_5)
                     }
                     plotarGrafic(resposta);
 
@@ -160,45 +163,67 @@
                 labels: pontos,
                 datasets: [{
                     data: qtdVezes,
-                    backgroundColor: 'red',
+                    backgroundColor: '#C8102E',
                     borderColor: 'red',
                     Color: 'red',
                     borderWidth: 1
                 }],
             },
             options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    datalabels: {
+                        color: '#fff'
+                    }
+                },
                 scales: {
                     y: {
-                        beginAtZero: true
+                        ticks: {
+                            color: '#fff'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#fff'
+                        }
                     }
                 }
             }
         });
+
 
         const myChart1 = document.getElementById('myChart1');
 
         new Chart(myChart1, {
             type: 'pie',
             data: {
+                labels: ['Nota maxima', 'Nota abaixo'],
                 datasets: [{
-                    data: qtdVezes,
-                    backgroundColor: 'red',
-                    borderColor: 'red',
-                    Color: 'red',
-                    borderWidth: 1
+                    data: [qtdVotos, qtdVotosAbaixo],
+                    backgroundColor: ['#224ea7', '#C8102E'], 
+                    borderColor: ['#303030'],
+                    borderWidth: 0.5
                 }],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top-left',
+                        labels: {
+                            color: '#fff'
+                        }
+                    },
+                    datalabels: {
+                        color: '#fff'
                     }
                 }
             }
         });
-
     }
-
     function sair() {
         sessionStorage.clear();
         window.open("login.html", "_self");

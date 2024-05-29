@@ -10,19 +10,21 @@ CREATE TABLE usuario (
     senha VARCHAR(45)
 );
 
-CREATE TABLE Feedback(
-idFeedback int primary key auto_increment,
-feedback varchar(45),
+CREATE TABLE avaliacao(
+idAvaliacao int primary key auto_increment,
+nota varchar(45) unique,
 fkUsuario int,
 foreign key (fkUsuario) references usuario(id) 
 );
 
-CREATE TABLE Pontuacao(
+CREATE TABLE pontuacao(
 idPontuacao int primary key auto_increment,
 pontos varchar(45),
 fkUsuario int,
-foreign key (fkUsuario) references Usuario(id)
+foreign key (fkUsuario) references usuario(id)
 );
+drop table Pontuacao;
+select * from usuario;
 
 /*insert into usuario values
 (null, 'Giovanni','2005-05-10','giovanni@sptech.com','123'),

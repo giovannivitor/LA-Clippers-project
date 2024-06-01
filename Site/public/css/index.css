@@ -71,7 +71,7 @@ body {
     flex-direction: column;
     margin-left: 40px;
     justify-content: center;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .banner-2 {
@@ -115,14 +115,16 @@ body {
 .imagemBufallo img {
     position: relative;
     z-index: 1;
-    height: 250px;
+    height: 280px;
 }
 
 .texto-direita {
     display: flex;
-    width: 59%;
-    font-size: large;
+    width: 80%;
+    font-size: larger;
     flex-direction: column;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .SanDiego {
@@ -152,14 +154,16 @@ body {
     display: flex;
     position: relative;
     z-index: 2;
-    height: 250px;
+    height: 280px;
 }
 
 .texto-esquerda {
     display: flex;
-    width: 59%;
-    font-size: large;
+    width: 80%;
+    font-size: larger;
     flex-direction: column;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .Clippers {
@@ -190,14 +194,16 @@ body {
     display: flex;
     position: relative;
     z-index: 2;
-    height: 240px;
+    height: 270px;
 }
 
 .texto-direita-2 {
     display: flex;
-    width: 59%;
-    font-size: large;
+    width: 80%;
+    font-size: larger;
     flex-direction: column;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .banner-3 .container {
@@ -207,7 +213,7 @@ body {
     width: 100%
 }
 
-.tituloJerseys h2 {
+.tituloJerseys h1 {
     display: flex;
     color: #224ea7;
     justify-content: center;
@@ -236,7 +242,7 @@ body {
 }
 
 .jersey h3 {
-    font-weight: 400;
+    font-weight: bold;
     color: #224ea7;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -340,4 +346,12 @@ body {
     gap: 5vh;
     display: flex;
     flex-direction: column;
+}
+
+.timeline{
+    width: 12px;
+    height: 220px;
+    background-color: #C8102E;
+    margin: 70px 60px;
+    transform: rotate(310deg) skew(310deg, 0);
 }

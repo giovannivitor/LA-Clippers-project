@@ -12,8 +12,8 @@ CREATE TABLE usuario (
 
 CREATE TABLE avaliacao(
 idAvaliacao int primary key auto_increment,
-nota varchar(45) unique,
-fkUsuario int,
+nota varchar(45),
+fkUsuario int unique,
 foreign key (fkUsuario) references usuario(id) 
 );
 
@@ -23,19 +23,9 @@ pontos varchar(45),
 fkUsuario int,
 foreign key (fkUsuario) references usuario(id)
 );
-drop table Pontuacao;
-select * from usuario;
 
-/*insert into usuario values
-(null, 'Giovanni','2005-05-10','giovanni@sptech.com','123'),
-(null, 'Joao','2000-02-10','gio@sptech.com','123');
-*/
 
--- IDADE MÉDIA DOS USUARIOS
-/*
-SELECT AVG(TIMESTAMPDIFF(YEAR, dtNasc, CURDATE())) AS media_idade
-FROM usuario;
-*/
+
 
 
 

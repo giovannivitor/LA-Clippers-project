@@ -5,6 +5,7 @@
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -72,6 +73,88 @@ body {
     margin-left: 40px;
     justify-content: center;
     opacity: 0.9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titulo a{
+    background-color: #C8102E ;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    width: 120px;
+    height: 48px;
+    padding: 0 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+}
+
+    
+
+.titulo a:not(:disabled):hover {
+    filter: brightness(0.8);
+  }
+
+.inicio{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.inicio .titulo-Contexto{
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #224ea7;
+}
+
+.inicio .conteudo{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.conteudo_esquerdo{
+    height: 50vh;
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo_esquerdo p{
+    display: flex;
+    width: 76%;
+    font-size: larger;
+    flex-direction: column;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.conteudo_direito{
+    height: 50vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo_direito img{
+    height: 48vh;
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-2 {
@@ -244,7 +327,7 @@ body {
 .jersey h3 {
     font-weight: bold;
     color: #224ea7;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .banner-4 {
@@ -266,6 +349,7 @@ body {
     display: flex;
     color: rgb(0, 0, 0);
     justify-content: center;
+    height: 70vh;
 }
 
 .texto p {
@@ -274,22 +358,33 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 75%;
-    margin-left: 130px;
+    width: 67%;
+    margin-left: 220px;
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.texto h3{
+    font-size: 1.1rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 67%;
+    margin-left: 220px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #224ea7;
+}
+
 .content-Sobremim img {
     height: 400px;
-    border-radius: 10%;
+    width: 500px;
+    border-radius: 50px 1px;
     object-fit: cover;
-    border: 3px solid #224ea7;
     z-index: 1;
     margin-left: 200px;
 }
-
-
 
 .footer .container {
     background: linear-gradient(90deg, #122a5a 0%, #2c5fc5 100%);
@@ -297,6 +392,7 @@ body {
     flex-direction: row;
     height: 35vh;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .logotipo2 {
@@ -317,7 +413,7 @@ body {
     align-items: center;
     justify-content: end;
     color: #ecf3f1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .contato li {

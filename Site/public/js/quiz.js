@@ -78,18 +78,18 @@ function finalizarQuiz() {
   const performance = Math.floor(totalCorretas * 100 / totaldeQuestoes)
 
   let message = ""
-    if (performance >= 90){
-      message = "Excelente, você é um verdadeiro fã do Los Angeles Clippers!"
-    }
-    else if (performance >= 70){
-      message = "Muito bom, você é um grande fã do Clippers!"
-    }
-    else if (performance >= 50){
-      message = "Bom, você é um torcedor iniciante do Clippers"
-    }
-    else{
-      message = "Péssimo, e você provavelmente torce para o Lakers"
-    }
+  if (performance >= 90) {
+    message = "Excelente, você é um verdadeiro fã do Los Angeles Clippers!"
+  }
+  else if (performance >= 70) {
+    message = "Muito bom, você é um grande fã do Clippers!"
+  }
+  else if (performance >= 50) {
+    message = "Bom, você é um torcedor iniciante do Clippers"
+  }
+  else {
+    message = "Péssimo, e você provavelmente torce para o Lakers"
+  }
 
   retanguloPergunta.innerHTML =
     `
@@ -98,15 +98,21 @@ function finalizarQuiz() {
       <span>Resultado: ${message}</span>
     </p>
     <button 
+    onclick="redirecionar()"
+    class="button"
+  >
+  Ver estatísticas 
+    
+  </button>
+    <button 
       onclick=window.location.reload() 
-      class="button"
+      class="button-refazer"
     >
-      Refazer teste
+      Refazer Quiz
       
     </button>
     
-    <a href="metricas.html">Ver estatisticas   
-    </a>
+
   
   `
   fetch(`pontuacao/registrar/${ID_USUARIO}`, {
@@ -134,6 +140,10 @@ function finalizarQuiz() {
     console.log(res);
   })
   console.log(totalCorretas);
+}
+
+function redirecionar(){
+  window.location.href = "metricas.html";
 }
 
 

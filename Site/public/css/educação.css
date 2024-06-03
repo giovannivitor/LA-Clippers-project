@@ -220,6 +220,7 @@ body {
     flex-direction: row;
     height: 35vh;
     width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .logotipo2 {
@@ -239,7 +240,7 @@ body {
     align-items: center;
     justify-content: end;
     color: #ecf3f1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .contato li {

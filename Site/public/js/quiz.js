@@ -1,9 +1,9 @@
-const comecarQuiz = document.querySelector(".start-quiz")
-const proximaPergunta = document.querySelector(".next-question")
-const retanguloPergunta = document.querySelector(".questions-container")
-const pergunta = document.querySelector(".question")
-const retanguloResposta = document.querySelector(".answers-container")
-const resposta = document.querySelectorAll(".answer")
+const comecarQuiz = document.querySelector(".comecar-quiz")
+const proximaPergunta = document.querySelector(".proxima-pergunta")
+const retanguloPergunta = document.querySelector(".questao-container")
+const pergunta = document.querySelector(".questao")
+const retanguloResposta = document.querySelector(".resposta-container")
+const resposta = document.querySelectorAll(".resposta")
 
 const ID_USUARIO = Number(sessionStorage.getItem("ID_USUARIO"))
 
@@ -11,32 +11,32 @@ let perguntaAtual = 0
 let totalCorretas = 0
 
 comecarQuiz.addEventListener("click", comecarJogo)
-proximaPergunta.addEventListener("click", displayNextQuestion)
+proximaPergunta.addEventListener("click", displayProximaPergunta)
 
 function comecarJogo() {
   comecarQuiz.classList.add("hide")
   retanguloPergunta.classList.remove("hide")
-  displayNextQuestion()
+  displayProximaPergunta()
 }
 
-function displayNextQuestion() {
+function displayProximaPergunta() {
   resetState()
 
-  if (questions.length === perguntaAtual) {
+  if (perguntas.length === perguntaAtual) {
     return finalizarQuiz()
   }
 
-  pergunta.textContent = questions[perguntaAtual].question
-  questions[perguntaAtual].answers.forEach(answer => {
-    const newAsnwer = document.createElement("button")
-    newAsnwer.classList.add("button", "answer")
-    newAsnwer.textContent = answer.text
-    if (answer.correct) {
-      newAsnwer.dataset.correct = answer.correct
+  pergunta.textContent = perguntas[perguntaAtual].pergunta
+  perguntas[perguntaAtual].respostas.forEach(resposta => {
+    const novaResposta = document.createElement("button")
+    novaResposta.classList.add("button", "resposta")
+    novaResposta.textContent = resposta.text
+    if (resposta.correto) {
+      novaResposta.dataset.correto = resposta.correto
     }
-    retanguloResposta.appendChild(newAsnwer)
+    retanguloResposta.appendChild(novaResposta)
 
-    newAsnwer.addEventListener("click", selectAnswer)
+    novaResposta.addEventListener("click", selecionarResposta)
   })
 }
 
@@ -49,23 +49,23 @@ function resetState() {
   proximaPergunta.classList.add("hide")
 }
 
-function selectAnswer(event) {
+function selecionarResposta(event) {
   const respostaClicada = event.target
 
-  if (respostaClicada.dataset.correct) {
-    document.body.classList.add("correct")
+  if (respostaClicada.dataset.correto) {
+    document.body.classList.add("correto")
     totalCorretas++
   } else {
-    document.body.classList.add("incorrect")
+    document.body.classList.add("incorreto")
   }
 
-  document.querySelectorAll(".answer").forEach(button => {
+  document.querySelectorAll(".resposta").forEach(button => {
     button.disabled = true
 
-    if (button.dataset.correct) {
-      button.classList.add("correct")
+    if (button.dataset.correto) {
+      button.classList.add("correto")
     } else {
-      button.classList.add("incorrect")
+      button.classList.add("incorreto")
     }
   })
 
@@ -73,29 +73,32 @@ function selectAnswer(event) {
   perguntaAtual++
 }
 
-function finalizarQuiz() {
-  const totaldeQuestoes = questions.length
-  const performance = Math.floor(totalCorretas * 100 / totaldeQuestoes)
+function redirecionar(){
+  window.location.href = "metricas.html";
+}
 
-  let message = ""
-  if (performance >= 90) {
-    message = "Excelente, você é um verdadeiro fã do Los Angeles Clippers!"
+function finalizarQuiz() {
+  const totaldeQuestoes = perguntas.length
+
+  var mensagemFinal = ""
+  if (totalCorretas >= 6) {
+    mensagemFinal = "Excelente, você é um verdadeiro fã do Los Angeles Clippers!"
   }
-  else if (performance >= 70) {
-    message = "Muito bom, você é um grande fã do Clippers!"
+  else if (totalCorretas >= 5) {
+    mensagemFinal = "Muito bom, você é um grande fã do Clippers!"
   }
-  else if (performance >= 50) {
-    message = "Bom, você é um torcedor iniciante do Clippers"
+  else if (totalCorretas >= 3) {
+    mensagemFinal = "Bom, você é um torcedor iniciante do Clippers"
   }
   else {
-    message = "Péssimo, e você provavelmente torce para o Lakers"
+    mensagemFinal = "Péssimo, e você provavelmente torce para o Lakers"
   }
 
   retanguloPergunta.innerHTML =
     `
-    <p class="final-message">
+    <p class="mensagem-final">
       Você acertou ${totalCorretas} de ${totaldeQuestoes} questões!
-      <span>Resultado: ${message}</span>
+      <span>Resultado: ${mensagemFinal}</span>
     </p>
     <button 
     onclick="redirecionar()"
@@ -142,74 +145,67 @@ function finalizarQuiz() {
   console.log(totalCorretas);
 }
 
-function redirecionar(){
-  window.location.href = "metricas.html";
-}
 
-
-
-
-
-const questions = [
+const perguntas = [
   {
-    question: "Qual o jogador que não faz parte do atual elenco do Los Angeles Clippers?",
-    answers: [
-      { text: "Paul George", correct: false },
-      { text: "P.J.Tucker", correct: false },
-      { text: "Blake Griffin", correct: true },
-      { text: "Kobe Brown", correct: false }
+    pergunta: "Qual o jogador que não faz parte do atual elenco do Los Angeles Clippers?",
+    respostas: [
+      { text: "Paul George", correto: false },
+      { text: "P.J.Tucker", correto: false },
+      { text: "Blake Griffin", correto: true },
+      { text: "Kobe Brown", correto: false }
     ]
   },
   {
-    question: "Como eram originalmente chamados os Los Angeles Clippers?",
-    answers: [
-      { text: "Braves", correct: true },
-      { text: "Bullets", correct: false },
-      { text: "Bombers", correct: false },
-      { text: "Clippers", correct: false }
+    pergunta: "Como eram originalmente chamados os Los Angeles Clippers?",
+    respostas: [
+      { text: "Braves", correto: true },
+      { text: "Bullets", correto: false },
+      { text: "Bombers", correto: false },
+      { text: "Clippers", correto: false }
     ]
   },
   {
-    question: 'Quantos títulos da NBA o Clippers tem?',
-    answers: [
-      { text: '0', correct: true },
-      { text: '13', correct: false },
-      { text: '17', correct: false },
-      { text: "1", correct: false }
+    pergunta: 'Quantos títulos da NBA o Clippers tem?',
+    respostas: [
+      { text: '0', correto: true },
+      { text: '13', correto: false },
+      { text: '17', correto: false },
+      { text: "1", correto: false }
     ]
   },
   {
-    question: 'O atual técnico do LA Clippers se chama Doc Rivers',
-    answers: [
-      { text: "Verdadeiro", correct: false },
-      { text: "Falso", correct: true }
+    pergunta: 'O atual técnico do LA Clippers se chama Doc Rivers',
+    respostas: [
+      { text: "Verdadeiro", correto: false },
+      { text: "Falso", correto: true }
     ]
   },
   {
-    question: 'Qual jogador que ingressou no time em 2019, e utiliza atualmente a camisa #13?',
-    answers: [
-      { text: 'Kawhi Leonard', correct: false },
-      { text: 'Paul Clifton Anthony George ', correct: true },
-      { text: 'Ivica Zubac', correct: false },
-      { text: 'Marlon Brandon Coelho Couto Silva', correct: false }
+    pergunta: 'Qual jogador que ingressou no time em 2019, e utiliza atualmente a camisa #13?',
+    respostas: [
+      { text: 'Kawhi Leonard', correto: false },
+      { text: 'Paul Clifton Anthony George ', correto: true },
+      { text: 'Ivica Zubac', correto: false },
+      { text: 'Marlon Brandon Coelho Couto Silva', correto: false }
     ]
   },
   {
-    question: 'Em qual ano os Clippers se mudaram para Los Angeles e se tornaram os Los Angeles Clippers?',
-    answers: [
-      { text: '2005', correct: false },
-      { text: '1984', correct: true },
-      { text: '1970', correct: false },
-      { text: '1978', correct: false }
+    pergunta: 'Em qual ano os Clippers se mudaram para Los Angeles e se tornaram os Los Angeles Clippers?',
+    respostas: [
+      { text: '2005', correto: false },
+      { text: '1984', correto: true },
+      { text: '1970', correto: false },
+      { text: '1978', correto: false }
     ]
   },
   {
-    question: 'Qual foi o último jogador dos clippers a ganhar o prêmio de sexto homem do ano?',
-    answers: [
-      { text: 'Lou Williams', correct: false },
-      { text: 'Jamal Crawford', correct: false },
-      { text: 'Eric Gordon', correct: false },
-      { text: 'Montrezl Harrell', correct: true },
+    pergunta: 'Qual foi o último jogador dos clippers a ganhar o prêmio de sexto homem do ano?',
+    respostas: [
+      { text: 'Lou Williams', correto: false },
+      { text: 'Jamal Crawford', correto: false },
+      { text: 'Eric Gordon', correto: false },
+      { text: 'Montrezl Harrell', correto: true },
     ]
   },
 ]

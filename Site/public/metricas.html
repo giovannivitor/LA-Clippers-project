@@ -31,7 +31,7 @@
     <div class="dashboard">
         <div class="dashboard_top">
             <div class="grafico_top_left">
-                <h2>% DE AVALIAÇÕES MÁXIMAS</h2>
+                <h2>PORCENTAGEM DE AVALIAÇÕES NOTA 5</h2>
                 <canvas id="myChart1" style="position: relative; height: 400; width: 400;"></canvas>
             </div>
             <div class="grafico_top_right">
@@ -143,18 +143,12 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGrafico(resposta, idAquario) {
 
         console.log('iniciando plotagem do gráfico...');
 
-        // Criando estrutura para plotar gráfico - labels
         let labels = [];
 
-        // Criando estrutura para plotar gráfico - dados
         const ctx = document.getElementById('myChart2');
 
         new Chart(ctx, {

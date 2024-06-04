@@ -124,10 +124,10 @@
 
     function enviarAvaliacao() {
         if (avaliacao >= 1) {
-            div_mensagem.innerHTML = `Você avaliou o site com a nota ${avaliacao}`
+            div_mensagem.innerHTML = `<h4>Você avaliou o site com a nota ${avaliacao}</h4>`
         }
         else {
-            div_mensagem.innerHTML = `Avaliação invalida`
+            div_mensagem.innerHTML = `<h4>Avaliação invalida</h4>`
         }
 
         fetch(`avaliacao/registrar/${ID_USUARIO}`, {

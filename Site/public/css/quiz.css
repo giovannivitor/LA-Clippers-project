@@ -45,7 +45,6 @@ body {
   color: #ecf3f1;
 }
 
-
 button {
   cursor: pointer;
 }
@@ -72,9 +71,7 @@ body::before {
   z-index: -1; /
 }
 
-
-
-.questions-container {
+.questao-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,24 +79,24 @@ body::before {
   gap: 24px;
 }
 
-.question {
+.questao {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
 
-.answers-container {
+.resposta-container {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.answer:disabled {
+.resposta:disabled {
   cursor: not-allowed;
 }
 
-.next-question {
+.proxima-pergunta {
   margin-top: 32px;
 }
 
@@ -145,26 +142,24 @@ a:focus {
   filter: brightness(0.8);
 }
 
-/* Finish game */
-.final-message {
+.mensagem-final {
   font-size: 20px;
   text-align: center;
 }
 
-.final-message span {
+.mensagem-final span {
   display: block;
   margin-top: 8px;
 }
 
-/* General styles */
 .hide {
   display: none;
 }
 
-.correct {
+.correto {
   background-color: #049b48;
 }
 
-.incorrect {
+.incorreto {
   background-color: #a10101;
 }

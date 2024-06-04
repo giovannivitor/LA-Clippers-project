@@ -102,6 +102,7 @@ body{
 
 .grafico_top_left{
     height: 200px;
+    width: 390px;
     padding: 30px;
     display: flex;
     flex-direction: column;

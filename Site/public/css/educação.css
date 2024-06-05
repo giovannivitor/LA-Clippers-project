@@ -1,10 +1,7 @@
-@font-face {
-    font-family: Vogue Font;
-    src: url(assets/Vogue.ttf);
-}
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -118,6 +115,7 @@ body {
     margin-top: 50px;
     margin-left: 30px;
     flex-direction: row;
+    color: #C8102E;
 }
 
 
@@ -146,6 +144,7 @@ body {
     margin-top: 50px;
     margin-left: 30px;
     flex-direction: row;
+    color: #C8102E;
 }
 
 
@@ -174,6 +173,7 @@ body {
     margin-top: 50px;
     margin-left: 30px;
     flex-direction: row;
+    color: #C8102E;
 }
 
 
@@ -202,6 +202,7 @@ body {
     margin-top: 50px;
     margin-left: 30px;
     flex-direction: row;
+    color: #C8102E;
 }
 
 

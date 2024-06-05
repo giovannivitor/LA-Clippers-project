@@ -358,8 +358,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 67%;
-    margin-left: 220px;
+    width: 60%;
+    margin-left: 250px;
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -371,7 +371,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 67%;
-    margin-left: 220px;
+    margin-left: 250px;
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #224ea7;
@@ -379,7 +379,7 @@ body {
 
 .content-Sobremim img {
     height: 400px;
-    width: 500px;
+    width: 400px;
     border-radius: 50px 1px;
     object-fit: cover;
     z-index: 1;

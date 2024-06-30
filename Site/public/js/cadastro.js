@@ -1,7 +1,29 @@
+function validarSessao() {
+  var email = sessionStorage.EMAIL_USUARIO;
+  var nome = sessionStorage.NOME_USUARIO;
+
+  var b_usuario = document.getElementById("b_usuario");
+
+  if (email != null && nome != null) {
+    b_usuario.innerHTML = nome;
+  } else {
+    window.location = "../login.html";
+  }
+}
+
+function limparSessao() {
+  sessionStorage.clear();
+  window.location = "../login.html";
+}
+
+// carregamento (loading)
+function aguardar() {
+  var divAguardar = document.getElementById("div_aguardar");
+  divAguardar.style.display = "flex";
+}
+
 function cadastrar() {
-    aguardar();
-  //Recupere o valor da nova input pelo nome do id
-  // Agora vá para o método fetch logo abaixo
+  aguardar();
   var nomeVar = nome_input.value;
   var dtNascVar = dtNasc_input.value;
   var emailVar = email_input.value;
@@ -13,12 +35,15 @@ function cadastrar() {
     dtNascVar == "" ||
     emailVar == "" ||
     senhaVar == "" ||
-    confirmacaoSenhaVar == "" 
+    confirmacaoSenhaVar == ""
   ) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "Mensagem de erro para todos os campos em branco";
-
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "CAMPO EM BRANCO",
+    });
 
     finalizarAguardar();
     return false;
@@ -30,76 +55,79 @@ function cadastrar() {
     finalizarAguardar();
     return false;
   } else if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "Mensagem de erro para o campo email";
-
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Email inválido",
+    });
     finalizarAguardar();
     return false;
 
   } else if (senhaVar.length <= 6) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "Mensagem de erro para o campo Senha";
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Senha muito fraca. Necessário no mínimo 7 caracteres",
+    });
 
     finalizarAguardar();
     return false;
   } else if (confirmacaoSenhaVar != senhaVar) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "Mensagem de erro para o campo Confirmar Senha";
+    Swal.fire({
+      icon: "error",
+      title: "Erro...",
+      background: "#1D1D1D",
+      color: "#FFF",
+      text: "Falha ao autenticar senha",
+    });
 
     finalizarAguardar();
     return false;
   } else {
-    setInterval(sumirMensagem, 5000)
-    window.location = "./login.html";
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        dtNascServer: dtNascVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+        if (resposta.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Sucesso!",
+            background: "#1D1D1D",
+            color: "#FFF",
+            text: "CADASTRO REALIZADO COM SUCESSO",
+            showConfirmButton: false,
+          });
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
   }
 
-
-  // Enviando o valor da nova input
-  fetch("/usuarios/cadastrar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
-      nomeServer: nomeVar,
-      dtNascServer: dtNascVar,
-      emailServer: emailVar,
-      senhaServer: senhaVar
-    }),
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-
-      if (resposta.ok) {
-        cardErro.style.display = "block";
-
-        mensagem_erro.innerHTML =
-          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-        setTimeout(() => {
-          window.location = "login.html";
-        }, "2000");
-
-        limparFormulario();
-        finalizarAguardar();
-      } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-      }
-    })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-      finalizarAguardar();
-    });
-
-  return false;
-}
-
-function sumirMensagem() {
-  cardErro.style.display = "none";
 }

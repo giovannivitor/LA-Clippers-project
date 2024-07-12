@@ -3,6 +3,11 @@
     src: url(assets/Vogue.ttf);
 }
 
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 body {
     margin: 0;
 }
@@ -52,53 +57,44 @@ body {
 }
 
 .card {
-    width: 30%;
-    background-color: #e5e5e5;
     display: flex;
+    width: 48vh;
+    height: 55vh;
+    background-color: #e5e5e5;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     color: #224ea7;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
 .card .IconLogin img{
-    margin: 45px;
-    height: 90px;
-    margin-bottom: 11px;
-    align-items: center;
+    margin: 40px;
+    height: 100px;
+    margin-bottom: 10px;
 }
 
 .formulario {
     display: flex;
-    height: 90%;
-    width: 80%;
     align-items: center;
     flex-direction: column;
     background-color: #e5e5e5 ;
 }
-.formulario span{
-    margin-right: 10px;
-    margin: -5px;
-}
-.formulario input{
-    border: 2px solid #e5e5e5;
-    text-align: center;
-    margin: 0.5px;
-    width: 160px;
-}
 
-.card{
-    display: flex;
-    width: 21%;
-    height: 55%;
+.formulario input{
+    border: 1px solid #000000;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    text-align: center;
+    margin: 2px;
+    width: 160px;
+    background: none;
 }
 
 .Cadastro .container {
     display: flex;
     justify-content: center;
-    margin-top: 150px;
 }
 
 .botao{
@@ -107,7 +103,7 @@ body {
     font-size: 19px;
     color: #e5e5e5;
     cursor: pointer;
-    width: 120px;
+    width: 135px;
     align-self: center;
     margin-bottom: 10px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
@@ -121,7 +117,8 @@ body {
   }
 
 .Cadastro {
-    position: relative; 
+    display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -141,7 +138,7 @@ body {
 }
 
 .menssagemLogin{
-    font-size: medium;
+    font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: normal;
     color: #224ea7;
@@ -151,40 +148,3 @@ body {
     color: #224ea7;
 }
 
-.loading-div {
-    width: 50px;
-    display: none;
-  }
-  
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
-  
-  #div_erros_login {
-    display: none
-  }
-  
-  .alerta_erro{
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .card_erro {
-    display: none;
-    background-color: #ffffff;
-    color: black;
-    width: 230px;
-    position: fixed;
-    border-radius: 15px;
-    border: #224ea7 3px solid;
-    padding: 10px;
-    margin-right: 10%;
-    margin-top: 100px;
-  }
-  
-  .card_erro #mensagem_erro{
-    font-weight: 500;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
